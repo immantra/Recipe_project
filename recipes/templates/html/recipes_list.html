@@ -1,0 +1,153 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+  <title>Apicbase Recipes</title>
+
+  <script>
+    function getDetails(recipeId) {
+      console.log(recipeId);
+      window.location.href = './'+recipeId;
+    };
+
+  </script>
+
+  <style>
+    .brand-logo {
+      margin-left: 1%;
+    }
+
+    .back {
+      margin-left: 1% !important;
+    }
+
+    .card-style {
+      margin-bottom: 20px;
+    }
+
+    nav ul a {
+      padding: 20px !important;
+    }
+
+    select {
+      display: block !important;
+      width: 10% !important;
+    }
+
+    .right {
+      margin-right: 10px;
+    }
+
+    tr {
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+
+  <div class="col s12 m8 l9">
+
+    <nav class="amber accent-3 nav-style">
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <a href="../" class="brand-logo">Apicbase</a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="../ingredient/">Ingredients</a>
+            </li>
+            <li class="active">
+              <a href="./">Recipes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+  <h3>
+    <a href="../" class=" back btn-floating btn-large waves-effect waves-light orange">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    List of Recipes
+    <a href="../recipes/form/" class="btn-floating btn-large waves-effect waves-light amber accent-4 right">
+      <i class="material-icons">add</i>
+    </a>
+  </h3>
+  <hr/>
+  <br/>
+  <br/>
+
+  <div class="card" class="card-style">
+    <table id="example" class="mdl-data-table" style="width:100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+
+           {% for recipe in recipes %}
+           <tr onclick="getDetails( {{ recipe.id}});">
+           <td>{{ recipe.name}}</td>
+           <td>{{ recipe.total_price_count}}</td>
+
+            </tr>
+            {% endfor %}
+      </tbody>
+    </table>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!--material Data table https://datatables.net/examples/styling/material.html-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+  <script>
+    $(document).ready(function () {
+      $('#example').DataTable({
+        columnDefs: [
+          {
+            targets: [0, 1, 2],
+            className: 'mdl-data-table__cell--non-numeric'
+          }
+        ]
+      });
+    });
+  </script>
+
+
+</body>
+
+</html>

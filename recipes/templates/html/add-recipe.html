@@ -1,0 +1,277 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+        <title>Apicbase Recipes</title>
+
+        <style>
+                .brand-logo {
+                        margin-left: 1%;
+                }
+
+                .back {
+                        margin-left: 1% !important;
+                }
+
+                nav ul a {
+                        padding: 20px !important;
+                }
+
+                #unit {
+                        margin-left: 10%;
+                }
+
+                .card-style {
+                        width: 30% !important;
+                        margin-left: 30% !important;
+                        padding: 1% !important;
+                }
+
+                .card-style2 {
+                        padding: 1% !important;
+                }
+
+                select {
+                        display: block !important;
+                        width: 10% !important;
+                }
+
+                .right {
+                        margin-right: 10px;
+                }
+
+                tr {
+                        cursor: pointer;
+                }
+
+                select {
+                        display: none !important;
+                }
+        </style>
+
+        <!--material Data table https://datatables.net/examples/styling/material.html-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script>
+
+
+                $(document).ready(function () {
+                        $('input.autocomplete').autocomplete({
+                                data: {
+                                        "Sugar": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Meat": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Eggs": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Nuts": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Pasta": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Potatoes": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Tomatoes": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Carrot": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Onion": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Basil": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Beans": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                        "Olive": 'https://cdn0.iconfinder.com/data/icons/food-filled-outline-2/64/ingredient-food-shopping-512.png',
+                                },
+                                onAutocomplete: autoCompleteAction
+
+
+                        });
+                });
+
+                function autoCompleteAction() {
+                        console.log('autocompleted')
+                }
+
+
+
+                function addIngredient() {
+                         var radios = document.getElementsByName('group1');
+
+                        let unit = 'Litre'
+
+                        for (let i = 0, length = radios.length; i < length; i++) {
+                                if (radios[i].checked) {
+                                        unit = radios[i].value
+                                        break;
+                                }
+                        }
+                        let ing = document.getElementById('autocomplete-input').value;
+                        let amount = document.getElementById('amount').value;
+                        document.getElementById('table-content').innerHTML += `<tr><td>` + ing + `</td><td>` + amount + `</td><td>` + unit + `</td></tr>`;
+                       {#document.getElementById('table-content').innerHTML += `<tr><td><input type="hidden" name="name[]" value="` + ing + `"/></td><td><input type="hidden" name="amount[]" value="` + amount + `"/></td><td><input type="hidden" name="unit[]" value="` + unit + `"/></td></tr>`;#}
+
+
+                }
+
+
+                function removeIngredient() {
+                        let table = document.getElementById('table-content').innerHTML;
+                        document.getElementById('table-content').innerHTML = table.substring(0,
+                                table.lastIndexOf('<tr>'));
+                }
+        </script>
+
+</head>
+
+<body>
+
+
+        <div class="col s12 m8 l9">
+
+                <nav class="amber accent-3 nav-style">
+                        <div class="nav-wrapper">
+                                <div class="col s12">
+                                        <a href="../../" class="brand-logo">Apicbase</a>
+                                        <ul class="right hide-on-med-and-down">
+                                                <li>
+                                                        <a href="../../ingredient/">Ingredients</a>
+                                                </li>
+                                                <li>
+                                                        <a href="../recipes">Recipes</a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </div>
+                </nav>
+        </div>
+
+
+        <h3>
+                <a href="../recipes" class=" back btn-floating btn-large waves-effect waves-light orange">
+                        <i class="material-icons">arrow_back</i>
+                </a>
+                Add a Recipe</h3>
+        <hr/>
+
+
+
+        <div class="card card-style">
+             <form   action="{% url 'recipes:add' %}" method="post">
+                            {% csrf_token %}
+
+                <div class="row">
+                        <div class="col s12">
+                                <div class="row">
+
+                                        <div class="input-field col s12">
+                                                <input placeholder="Example: Pasta" id="first_name" type="text" class="validate" name="recipe_name">
+                                                <label for="first_name">Name</label>
+                                        </div>
+
+
+                                </div>
+
+                                <div>
+                                        <div class="card card-style2">
+                                                <div class="row">
+                                                        <div class="col s12">
+                                                                <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                                <i class="material-icons prefix">add_shopping_cart</i>
+                                                                                <input type="text" id="autocomplete-input" class="autocomplete">
+                                                                                <label for="autocomplete-input">Add an ingredient</label>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+
+                                                <div class="row">
+
+                                                        <div class="input-field col s12">
+                                                                <input placeholder="Example: 12.250" id="amount" type="Number" step="0.001" class="validate">
+                                                                <label for="first_name">Amount</label>
+                                                        </div>
+
+
+                                                </div>
+                                                <label>Unit:</label>
+                                                <div class="row container" id="unit">
+                                                        <p>
+                                                                <label>
+                                                                        <input value="centilitre" class="with-gap" name="group1" type="radio" checked />
+                                                                        <span>Centilitre</span>
+                                                                </label>
+                                                        </p>
+                                                        <p>
+                                                                <label>
+                                                                        <input value="litre" class="with-gap" name="group1" type="radio" checked />
+                                                                        <span>Litre</span>
+                                                                </label>
+                                                        </p>
+                                                        <p>
+                                                                <label>
+                                                                        <input value="Gram" class="with-gap" name="group1" type="radio" />
+                                                                        <span>Gram</span>
+                                                                </label>
+                                                        </p>
+                                                        <p>
+                                                                <label>
+                                                                        <input value="Kilogram" class="with-gap" name="group1" type="radio" />
+                                                                        <span>Kilogram</span>
+                                                                </label>
+                                                        </p>
+                                                </div>
+
+
+
+                                        </div>
+
+
+                                </div>
+                                <div id="ingredients" class="row">
+                                        <table id="example2" class="mdl-data-table" style="width:100%">
+                                                <thead>
+                                                        <tr>
+                                                                <th>Ingredient</th>
+                                                                <th>Amount</th>
+                                                                <th>Unit</th>
+                                                        </tr>
+                                                </thead>
+                                                <tbody id='table-content'>
+
+                                                </tbody>
+                                        </table>
+
+
+
+
+                                </div>
+
+
+                                <div class="row">
+                                        <input class="btn btn-success" type="submit" value="Save recipe" />
+                                </div>
+                        </div>
+                </div>
+             </form>
+            <div class="row">
+                 <button onclick='removeIngredient();' class="waves-effect waves-light btn-small right red">
+                                                <i class="material-icons left">delete_forever</i>remove ingredient
+                                        </button>
+
+                                                        <button onclick="return addIngredient()" class="btn-floating btn-large waves-effect waves-light orange right">
+                                                                <i class="material-icons">add</i>
+                                                        </button>
+
+                                                </div>
+        </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+        <title>Apicbase Recipes</title>
+        <script>
+                function getDetails(ingredientId) {
+                        console.log(ingredientId);
+                        window.location.href = './ingredient-details.html';
+                };
+        </script>
+        <style>
+                .brand-logo {
+                        margin-left: 1%;
+                }
+
+                .back {
+                        margin-left: 1% !important;
+                }
+
+                .card-style {
+                        width: 30% !important;
+                        margin-left: 30% !important;
+                        padding: 1% !important;
+                }
+
+                select {
+                        display: block !important;
+                        width: 10% !important;
+                }
+
+                .right {
+                        margin-right: 10px;
+                }
+
+                tr {
+                        cursor: pointer;
+                }
+
+                select {
+                        display: none !important;
+                }
+        </style>
+        <!--material Data table https://datatables.net/examples/styling/material.html-->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script>$(document).ready(function () {
+                        $('select').formSelect();
+                });</script>
+
+</head>
+
+<body>
+
+
+        <div class="col s12 m8 l9">
+
+                <nav class="amber accent-3 nav-style">
+                        <div class="nav-wrapper">
+                                <div class="col s12">
+                                        <a href="../../" class="brand-logo">Apicbase</a>
+                                        <ul class="right hide-on-med-and-down">
+                                                <li>
+                                                        <a href="../">Ingredients</a>
+                                                </li>
+                                                <li>
+                                                        <a href="../../recipes/">Recipes</a>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </div>
+                </nav>
+        </div>
+
+
+        <h3>
+                <a href="../" class=" back btn-floating btn-large waves-effect waves-light orange">
+                        <i class="material-icons">arrow_back</i>
+                </a>
+                Add an Ingredient</h3>
+        <hr/>
+
+
+
+        <div class="card card-style">
+                <div class="row">
+                        <form class="col s12"  action="{% url 'ingredients:add' %}" method="post">
+                            {% csrf_token %}
+
+                                <div class="row">
+
+                                        <div class="input-field col s12">
+                                                <input required placeholder="Example: 33" id="first_name" type="Number" name="artical_number" class="validate">
+                                                <label for="first_name">Artical Number</label>
+                                        </div>
+
+
+                                </div>
+
+                                <div class="row">
+
+                                        <div class="input-field col s12">
+                                                <input required placeholder="Example: Potatos" name="name" id="first_name" type="text" class="validate">
+                                                <label for="first_name">Name</label>
+                                        </div>
+
+
+                                </div>
+                                                            <div class="row">
+
+                                        <div class="input-field col s12">
+                                                <input required placeholder="Example: 4.5" name="price" id="first_name" type="Number" class="validate">
+                                                <label for="first_name">Price</label>
+                                        </div>
+
+
+                                </div>
+
+                                <div class="row">
+
+                                        <div class="input-field col s12">
+                                                <input required placeholder="Example: 12.250" name="amount" id="first_name" type="Number" step="0.001" class="validate">
+                                                <label for="first_name">Amount</label>
+                                        </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+                                        <p>
+                                                <label>
+                                                        <input class="with-gap" checked name="group1" type="radio" />
+                                                        <span>Gram</span>
+                                                </label>
+                                        </p>
+                                        <p>
+                                                <label>
+                                                        <input class="with-gap" name="group1" type="radio" />
+                                                        <span>Kilogram</span>
+                                                </label>
+                                        </p>
+                                    <p>
+                                                <label>
+                                                        <input class="with-gap" name="group1" type="radio" />
+                                                        <span>centilitre</span>
+                                                </label>
+                                        </p>
+                                        <p>
+                                                <label>
+                                                        <input class="with-gap"  name="group1" type="radio" />
+                                                        <span>litre</span>
+                                                </label>
+                                        </p>
+                                </div>
+
+
+                              <input class="btn btn-success" type="submit" value="Save" />
+
+
+
+
+                        </form>
+                </div>
+
+        </div>
+
+
+
+
+
+
+
+</body>
+
+</html>

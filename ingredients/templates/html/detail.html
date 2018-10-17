@@ -1,0 +1,128 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+    <title>Apicbase Recipes</title>
+    <style>
+        .brand-logo {
+            margin-left: 1%;
+        }
+
+        .back {
+            margin-left: 1% !important;
+        }
+
+        .card-style {
+            margin-bottom: 20px;
+        }
+
+        select {
+            display: block !important;
+            width: 10% !important;
+        }
+
+        .right {
+            margin-right: 10px;
+        }
+
+        .card-container {
+            margin-left: 20%;
+            width: 50% !important;
+        }
+
+        .image-style {
+            margin-left: 30%;
+            width: 23% !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="col s12 m8 l9">
+
+        <nav class="amber accent-3 nav-style">
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="../../" class="brand-logo">Apicbase</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="../">Ingredients</a>
+                        </li>
+                        <li>
+                            <a href="../../recipes">Recipes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <h3>
+        <a href="../" class=" back btn-floating btn-large waves-effect waves-light orange">
+            <i class="material-icons">arrow_back</i>
+        </a>
+        Ingredient Details</h3>
+    <hr/>
+
+
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator image-style" src="https://static.thenounproject.com/png/151336-200.png">
+            </div>
+            <hr/>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-3 right">{{ ingredient.article_number }}</span>
+                <span class="card-title activator grey-text text-darken-2">{{ ingredient.name }}</span>
+                <hr/>
+                <span class="card-title activator grey-text text-darken-4">Price: {{ ingredient.price }} $</span>
+                <span class="card-title activator grey-text text-darken-4">Amount: {{ ingredient.amount }}</span>
+                <span class="card-title activator grey-text text-darken-4">Unit: {{ ingredient.unit }}</span>
+                <p>
+                    <a href="../delete/{{ ingredient.id}}">Delete This ingredient</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--material Data table https://datatables.net/examples/styling/material.html-->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+
+
+</body>
+
+</html>

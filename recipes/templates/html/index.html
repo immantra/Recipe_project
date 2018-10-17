@@ -1,0 +1,293 @@
+<!DOCTYPE html5>
+<html>
+
+<head>
+  <title>Apicbase Recipes</title>
+
+
+  <style>
+    .center-intro {
+      margin-left: 25% !important;
+    }
+
+    .center-text {
+      margin-left: 15% !important;
+    }
+
+    .brand-logo {
+      margin-left: 1%;
+    }
+
+
+
+
+    @import '//codepen.io/chrisdothtml/pen/ojLzJK.css';
+    .social-btns .btn,
+    .social-btns .btn:before,
+    .social-btns .btn .fa {
+      transition: all 0.35s;
+      transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
+    }
+
+    .social-btns .btn:before {
+      top: 90%;
+      left: -110%;
+    }
+
+    .social-btns .btn .fa {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+    }
+
+    .social-btns .btn.facebook:before {
+      background-color: #3b5998;
+    }
+
+    .social-btns .btn.facebook .fa {
+      color: #3b5998;
+    }
+
+    .social-btns .btn.twitter:before {
+      background-color: #3cf;
+    }
+
+    .social-btns .btn.twitter .fa {
+      color: #3cf;
+    }
+
+    .social-btns .btn.google:before {
+      background-color: #dc4a38;
+    }
+
+    .social-btns .btn.google .fa {
+      color: #dc4a38;
+    }
+
+    .social-btns .btn.dribbble:before {
+      background-color: #f26798;
+    }
+
+    .social-btns .btn.dribbble .fa {
+      color: #f26798;
+    }
+
+    .social-btns .btn.skype:before {
+      background-color: #00aff0;
+    }
+
+    .social-btns .btn.skype .fa {
+      color: #00aff0;
+    }
+
+    .social-btns .btn:focus:before,
+    .social-btns .btn:hover:before {
+      top: -10%;
+      left: -10%;
+    }
+
+    .social-btns .btn:focus .fa,
+    .social-btns .btn:hover .fa {
+      color: #fff;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    .social-btns {
+      height: 90px;
+      margin: auto;
+      font-size: 0;
+      text-align: center;
+      position: absolute;
+      /*top: 0;*/
+      margin-bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .social-btns .btn {
+      display: inline-block;
+      background-color: #fff;
+      width: 90px;
+      height: 90px;
+      line-height: 90px;
+      margin: 0 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 28%;
+      box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.1);
+      opacity: 0.99;
+    }
+
+    .social-btns .btn:before {
+      content: '';
+      width: 120%;
+      height: 120%;
+      position: absolute;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    .social-btns .btn .fa {
+      font-size: 38px;
+      vertical-align: middle;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.carousel').carousel();
+    });
+  </script>
+
+</head>
+
+<body>
+
+
+  <div class="col s12 m8 l9">
+    <!-- Dropdown Structure -->
+
+    <nav class="amber accent-3">
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <a href="index.html" class="brand-logo">Apicbase</a>
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="./ingredient/">Ingredients</a>
+            </li>
+            <li>
+              <a href="./recipes/">Recipes</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+
+
+  <div>
+    <h3 class="center-intro">Welcome to Apicbase Recipes ...</h3>
+    <h6 class=" center-text activator grey-text text-darken-2">Here you can add your recipes based on existing ingredients ... And you will get an approximated price of your tasty
+      recipe !
+      <h6 class="center-intro activator grey-text text-darken-2"> You can also take a look on other people 'delicious recipes and share yours... </h6>
+    </h6>
+  </div>
+
+
+  <!--Img slider Beginning-->
+
+{% load static %}
+  <div class="carousel">
+    <a class="carousel-item" href="#one!">
+<img src="/static/mysite/0.jpg" alt="My image">
+    </a>
+    <a class="carousel-item" href="#two!">
+<img src="/static/mysite/1.jpg" alt="My image">
+    </a>
+    <a class="carousel-item" href="#three!">
+<img src="/static/mysite/2.jpg" alt="My image">
+    </a>
+    <a class="carousel-item" href="#four!">
+<img src="/static/mysite/3.jpg" alt="My image">
+    </a>
+    <a class="carousel-item" href="#five!">
+<img src="/static/mysite/4.jpg" alt="My image">
+    </a>
+    <a class="carousel-item" href="#six!">
+<img src="/static/mysite/5.jpg" alt="My image">
+    </a>
+  </div>
+
+
+  <!--Img slider end-->
+
+
+
+
+
+
+
+
+
+
+  <footer class="page-footer orange darken-4">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Apicbase - Belgium</h5>
+          <p class="grey-text text-lighten-4">This site is developed as part of my application for an internship at Apicbase
+          </p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Candidate contact</h5>
+          <ul>
+            <li>
+              <a class="grey-text text-lighten-3" href="https://www.facebook.com/imantra96">Facebook
+              </a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Linkedin</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">Gmail</a>
+            </li>
+            <li>
+              <a class="grey-text text-lighten-3" href="#!">CV</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2018 Copyright Iman Trabelsi
+        <a class="grey-text text-lighten-4 right" href="#!">(+216)52929450 - iman.trabelssi@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+  <div class="social-btns">
+      <a class="btn facebook" href="#">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a class="btn twitter" href="#">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a class="btn google" href="#">
+        <i class="fa fa-google"></i>
+      </a>
+      <a class="btn dribbble" href="#">
+        <i class="fa fa-dribbble"></i>
+      </a>
+      <a class="btn skype" href="#">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </div>
+
+
+
+
+
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  
+
+
+</body>
+
+</html>
