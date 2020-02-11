@@ -5,7 +5,7 @@ certifi==2018.10.15
 chardet==3.0.4
 cheroot==6.5.2
 CherryPy==18.0.1
-Django==2.1.2
+Django==2.2.10
 feedparser==5.2.1
 future==0.16.0
 idna==2.7
