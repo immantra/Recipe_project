@@ -21,7 +21,7 @@ portend==2.3
 pycryptodome==3.6.6
 python-docx==0.8.7
 pytz==2018.5
-pywin32==224
+pywin32==301
 requests==2.19.1
 scipy==1.1.0
 six==1.11.0
